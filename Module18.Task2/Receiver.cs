@@ -16,16 +16,28 @@ namespace Module18.Task2
         /// </summary>
         public void GetInfo()
         {
-            Console.Write("Введите ссылку на видео YouTube: ");
+            while (true)
+            {
+                try
+                {
+                    Console.Write("Введите ссылку на видео YouTube: ");
 
-            url = Console.ReadLine();
+                    url = Console.ReadLine();
 
-            var video = RequestToYouTube(url);
+                    var video = RequestToYouTube(url);
 
-            Console.WriteLine($"\nНазвание: {video.Result.Title}");
-            Console.WriteLine($"Дата загрузки: {video.Result.UploadDate}");
-            Console.WriteLine($"Продолжительность: {video.Result.Duration}");
-            Console.WriteLine($"Автор: {video.Result.Author}");
+                    Console.WriteLine($"\nНазвание: {video.Result.Title}");
+                    Console.WriteLine($"Дата загрузки: {video.Result.UploadDate}");
+                    Console.WriteLine($"Продолжительность: {video.Result.Duration}");
+                    Console.WriteLine($"Автор: {video.Result.Author}");
+
+                    break;  // если дошли сюда - ошибок не было, цикл прерываем
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
         }
 
         private async Task<YoutubeExplode.Videos.Video> RequestToYouTube(string url)
