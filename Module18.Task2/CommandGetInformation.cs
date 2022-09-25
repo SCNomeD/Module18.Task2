@@ -14,7 +14,7 @@
 
         public override void Run()
         {
-            reseiver.GetInformation();
+            reseiver.GetInfo();
         }
     }
 }

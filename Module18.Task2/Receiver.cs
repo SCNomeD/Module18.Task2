@@ -14,7 +14,7 @@ namespace Module18.Task2
         /// <summary>
         /// Метод получает информацию о видео.
         /// </summary>
-        public void GetInformation()
+        public void GetInfo()
         {
             Console.Write("Введите ссылку на видео YouTube: ");
 
@@ -49,6 +49,9 @@ namespace Module18.Task2
             Console.WriteLine("\nЗагрузка завершена.");
         }
 
+        /// <summary>
+        /// Метод сохраняет файл.
+        /// </summary>
         private async Task Download()
         {
             Console.Write("\nВведите имя для сохраняемого файла: ");
